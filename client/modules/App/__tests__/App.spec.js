@@ -1,66 +1,22 @@
-/*
 import React from 'react';
-import PropTypes from 'prop-types';
 import test from 'ava';
-import sinon from 'sinon';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { App } from '../App';
 import styles from '../App.css';
 
-const children = <h1>Test</h1>;
-const dispatch = sinon.spy();
-const props = {
-  children,
-  dispatch,
-};
+const children = <h1>test</h1>;
+const wrapper = shallow(<App children={children} />);
 
-test('renders properly', t => {
-  const wrapper = shallow(
-    <App {...props} />
-  );
-
-  // t.is(wrapper.find('Helmet').length, 1);
-  // t.is(wrapper.find('Header').length, 1);
-  // t.is(wrapper.find('Footer').length, 1);
-  // t.truthy(wrapper.find('Header + div').hasClass(styles.container));
-  // t.truthy(wrapper.find('Header + div').children(), children);
-  t.truthy(wrapper.find('div').hasClass(styles.container));
+test('render properly', t => {
+  t.true(wrapper.find('div').children.length >= 1);
 });
 
-test('calls componentDidMount', t => {
-  sinon.spy(App.prototype, 'componentDidMount');
-  mount(
-    <App {...props} />,
-    {
-      context: {
-        router: {
-          isActive: sinon.stub().returns(true),
-          push: sinon.stub(),
-          replace: sinon.stub(),
-          go: sinon.stub(),
-          goBack: sinon.stub(),
-          goForward: sinon.stub(),
-          setRouteLeaveHook: sinon.stub(),
-          createHref: sinon.stub(),
-        },
-      },
-      childContextTypes: {
-        router: PropTypes.object,
-      },
-    },
-  );
-
-  t.truthy(App.prototype.componentDidMount.calledOnce);
-  App.prototype.componentDidMount.restore();
+test('prop children renders', t => {
+  t.true(wrapper.contains(children));
 });
 
-test('calling toggleAddPostSection dispatches toggleAddPost', t => {
-  const wrapper = shallow(
-    <App {...props} />
-  );
-
-  wrapper.instance().toggleAddPostSection();
-  t.truthy(dispatch.calledOnce);
-  t.truthy(dispatch.calledWith(toggleAddPost()));
+test('proper styling/ styling imported', t => {
+  t.truthy(wrapper.find('div > div').hasClass(styles.container));
 });
-*/
+
+test.todo('responsive design');

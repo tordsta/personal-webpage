@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 // Import Style
 import styles from './App.css';
@@ -30,10 +30,8 @@ export class App extends Component {
     return (
       <div>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
-        <div>
-          <div className={styles.container}>
-            {this.props.children}
-          </div>
+        <div className={styles.container}>
+          {this.props.children}
         </div>
       </div>
     );
@@ -42,10 +40,10 @@ export class App extends Component {
 
 App.propTypes = {
   children: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
 };
 
 // Retrieve data from store as props
+/*
 function mapStateToProps(store) {
   return {
     intl: store.intl,
@@ -53,3 +51,6 @@ function mapStateToProps(store) {
 }
 
 export default connect(mapStateToProps)(App);
+*/
+
+export default App;
