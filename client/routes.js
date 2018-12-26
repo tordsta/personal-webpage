@@ -22,6 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // react-router setup with code-splitting
 // More info: http://mxstbr.blog/2016/01/react-apps-with-pages/
+// Passes pages as children to app
 export default (
   <Route path="/" component={App}>
     <IndexRoute

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import styles from './App.css';
 
 // Import Components
+import VerticalNavigation from './components/VerticalNavigation';
 
 // Import Actions
 
@@ -33,6 +34,7 @@ export class App extends Component {
         <div className={styles.container}>
           {this.props.children}
         </div>
+        <VerticalNavigation/>
       </div>
     );
   }
