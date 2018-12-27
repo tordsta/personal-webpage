@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 // Import Style
 
-function VerticalNavigationButton(props) {
+function VerticalNavigationButton() {
   return (
     <div>
-      <p>helloworld from button</p>
+      <p>hello world from button</p>
     </div>
   );
 }
