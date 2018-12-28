@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 
 // Import Style
 import styles from './VerticalNavigationButton.css';
-import MediaQuery from 'react-responsive';
 
 function VerticalNavigationButton(props) {
   return (
-    <div>
-      <Anchor href={props.link.uri} className={styles.anchor}>
+    <div className={styles.anchor}>
+      <Anchor href={props.link.uri}>
         {props.link.name}
       </Anchor>
     </div>
