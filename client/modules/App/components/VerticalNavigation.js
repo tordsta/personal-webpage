@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 // Import Component
 import VerticalNavigationButton from './VerticalNavigationButton/VerticalNavigationButton';
 
-const linkes = [
+const links = [
   {
-    "name": "route1",
-    "uri": "/"
+    'name': 'route1',
+    'uri': '/',
   },
   {
-    "name": "route2",
-    "uri": "/"
+    'name': 'route2',
+    'uri': '/something',
   },
 ];
 
@@ -22,8 +22,8 @@ function VerticalNavigation(props) {
     <div className="v-navigation">
       <p>hello from vert nav</p>
       {
-        linkes.map( link => (
-          <VerticalNavigationButton linkObj={link} />
+        links.map( (link) => (
+          <VerticalNavigationButton link={link} key={link.uri} />
           )
         )
       }
