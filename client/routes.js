@@ -32,15 +32,21 @@ export default (
         });
       }}
     />
-    {/*
     <Route
-      path="/posts/:slug-:cuid"
+      path="/aboutme"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
+          cb(null, require('./modules/AboutMe/pages/AboutMePage/AboutMePage.js').default);
         });
       }}
     />
-    */}
+    <Route
+      path="/hireme"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/HireMe/pages/HireMePage/HireMePage.js').default);
+        });
+      }}
+    />
   </Route>
 );

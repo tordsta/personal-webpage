@@ -19,6 +19,7 @@
 
 .container {
   grid-area: container;
+  font-size: 2em;
   /*centers the content*/
   text-align: center;
   display: flex;

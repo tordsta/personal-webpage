@@ -18,12 +18,12 @@ const links = [
   },
   {
     'name': 'About me',
-    'uri': '/something',
+    'uri': '/aboutme',
     'img': '',
   },
   {
     'name': 'Hire me',
-    'uri': '/something',
+    'uri': '/hireme',
     'img': '',
   },
 ];
