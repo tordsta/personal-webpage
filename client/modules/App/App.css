@@ -1,7 +1,7 @@
 /*the app grid is only used to place objects in relation to each other, scaling happens at component level*/
 .app{
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: min-content auto;
   grid-template-rows: auto;
   grid-template-areas:
     "navigationVertical container"
@@ -19,9 +19,9 @@
 
 .container {
   grid-area: container;
-  max-width: 980px;
-  width: 100%;
-  padding: 15px;
-  margin: 0 auto;
-}
+  /*centers the content*/
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;}
 
