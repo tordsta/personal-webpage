@@ -1,0 +1,12 @@
+/*responsive design is handled at this level*/
+.verticalNavigation{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20vw;
+  min-width: 150px;
+  max-width: 300px;
+  height: 100vh;
+  font-size: 3em;
+  background-color: #DADADA;
+}

@@ -1,0 +1,10 @@
+.anchor{
+  flex-grow: 1;
+  border: 1px solid gray;
+  /*This centers the anchor element in the middle of the div*/
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+

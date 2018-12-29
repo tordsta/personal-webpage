@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 // Import Style
 import styles from './App.css';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 // Import Components
-import VerticalNavigation from './components/VerticalNavigation';
+import VerticalNavigation from './components/VerticalNavigation/VerticalNavigation';
 
 // Import Actions
 
@@ -17,9 +18,9 @@ if (process.env.NODE_ENV === 'development') {
   DevTools = require('./components/DevTools').default;
 }
 
-// handleling of responsive design goes with breakboints defined in top of application
-//the breakpoints are defined by standard device width and by commenly used breakpoints
-//the design and interaction is diferent on mobile, need a way to separate them, thats not based on px or vw
+// handling of responsive design happens modularity in the components
+// some common break points are defined in top level of application
+// npm package react-responsive and react-device-detect is used in components
 
 const CommonBreakpointsWidth = {
   large: 1690,
@@ -28,16 +29,6 @@ const CommonBreakpointsWidth = {
   small: 736,
   tiny: 480,
 };
-
-const DeviceMinWidth = {
-  desktopBig: 2500,
-  desktop: 1900,
-  laptop: 1900,
-  tablet: 1200,
-  mobileBig: 1000,
-  mobileSmall: 0,
-};
-
 
 export class App extends Component {
   constructor(props) {
@@ -51,12 +42,21 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.app}>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
+        <div className={styles.navigationVertical}>
+          <BrowserView>
+            <VerticalNavigation />
+          </BrowserView>
+        </div>
+        <div className={styles.navigationHorizontal}>
+          <MobileView >
+            <p>mobile navigation is not yet implemented</p>
+          </MobileView>
+        </div>
         <div className={styles.container}>
           {this.props.children}
         </div>
-        <VerticalNavigation />
       </div>
     );
   }

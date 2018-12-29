@@ -5,7 +5,7 @@ import styles from './WelcomeText.css';
 
 function WelcomeText() {
   return (
-    <div>
+    <div className={styles.welcome}>
       <h1 className={styles['welcome-header']}>
         Welcome
       </h1>

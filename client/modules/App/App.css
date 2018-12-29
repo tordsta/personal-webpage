@@ -1,6 +1,27 @@
+/*the app grid is only used to place objects in relation to each other, scaling happens at component level*/
+.app{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "navigationVertical container"
+    "navigationVertical container"
+    "navigationHorizontal navigationHorizontal";
+}
+
+.navigationVertical{
+  grid-area: navigationVertical;
+}
+
+.navigationHorizontal{
+  grid-area: navigationHorizontal;
+}
+
 .container {
+  grid-area: container;
   max-width: 980px;
   width: 100%;
   padding: 15px;
   margin: 0 auto;
 }
+
