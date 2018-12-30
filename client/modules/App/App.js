@@ -8,6 +8,8 @@ import { BrowserView, MobileView } from 'react-device-detect';
 
 // Import Components
 import VerticalNavigation from './components/VerticalNavigation/VerticalNavigation';
+import HorizontalNavigation from './components/HorizontalNavigation/HorizontalNavigation';
+import TestComponent from './components/TestComponent';
 
 // Import Actions
 
@@ -44,18 +46,29 @@ export class App extends Component {
     return (
       <div className={styles.app}>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
+
+        {/*Browser navigation and render*/}
         <div className={styles.navigationVertical}>
           <BrowserView>
             <VerticalNavigation />
           </BrowserView>
         </div>
+        <div className={styles.containerBrowser}>
+          <BrowserView>
+            {this.props.children}
+          </BrowserView>
+        </div>
+
+        {/*Mobile navigation and render*/}
         <div className={styles.navigationHorizontal}>
-          <MobileView >
-            <p>mobile navigation is not yet implemented</p>
+          <MobileView>
+            <HorizontalNavigation />
           </MobileView>
         </div>
-        <div className={styles.container}>
-          {this.props.children}
+        <div className={styles.containerMobile}>
+          <MobileView>
+            {this.props.children}
+          </MobileView>
         </div>
       </div>
     );

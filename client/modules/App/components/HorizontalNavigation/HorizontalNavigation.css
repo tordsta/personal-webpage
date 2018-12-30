@@ -1,0 +1,16 @@
+.horizontalNavigation{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  height: 10vh;
+  font-size: 3em;
+  min-height: 1.5em;
+  background-color: #DADADA;
+  position: fixed;
+  bottom: 0;
+}
+
+.spacer{
+  margin-bottom: 10vh;
+}

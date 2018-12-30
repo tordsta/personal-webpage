@@ -1,42 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 // Import Style
 import styles from './VerticalNavigation.css';
-import MediaQuery from 'react-responsive';
 
 
 // Import Component
 import VerticalNavigationButton from './VerticalNavigationButton/VerticalNavigationButton';
 
-// this data need to be in redux store, since its to be used by multiple components
-const links = [
-  {
-    'name': 'Home',
-    'uri': '/',
-    'img': '',
-  },
-  {
-    'name': 'About me',
-    'uri': '/aboutme',
-    'img': '',
-  },
-  {
-    'name': 'Hire me',
-    'uri': '/hireme',
-    'img': '',
-  },
-];
+class VerticalNavigation extends Component {
 
-function VerticalNavigation(props) {
-  return (
-    <div className={styles.verticalNavigation}>
-      {links.map( (link) => (
-        <VerticalNavigationButton link={link} key={link.uri} />
-      ))}
-    </div>
-  );
+  render() {
+    return (
+      <div className={styles.verticalNavigation}>
+        {this.props.routes.map( (routes) => (
+          <VerticalNavigationButton link={routes} key={routes.uri} />
+        ))}
+      </div>
+    );
+  }
 }
 
+// PropTypes breaks the css for VerticalNavigation
+// TODO: find out and fix this bug
+VerticalNavigationButton.PropTypes = {
+  // routes: React.PropTypes.array.isRequired,
+};
 
-export default VerticalNavigation;
+const mapStateToProps = (state) => {
+  return {
+    routes: state.app.routes,
+  };
+};
+
+export default connect(mapStateToProps)(VerticalNavigation);

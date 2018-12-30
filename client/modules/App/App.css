@@ -1,10 +1,9 @@
 /*the app grid is only used to place objects in relation to each other, scaling happens at component level*/
 .app{
   display: grid;
-  grid-template-columns: min-content auto;
-  grid-template-rows: auto;
+  grid-template-columns: fit-content(30vw) 1fr;
+  grid-template-rows: 1fr fit-content(20vh);
   grid-template-areas:
-    "navigationVertical container"
     "navigationVertical container"
     "navigationHorizontal navigationHorizontal";
 }
@@ -17,12 +16,20 @@
   grid-area: navigationHorizontal;
 }
 
-.container {
+.containerBrowser {
   grid-area: container;
-  font-size: 2em;
-  /*centers the content*/
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;}
+  /*creates restricted box with overflow*/
+  max-height: 100vh;
+  /*max-width: 100vw;*/
+  overflow: auto;
+  /*padding: auto;*/
+  /*centering and resizing of content happens in the child for the sake of modularity*/
+}
 
+.containerMobile {
+  grid-area: container;
+  /*creates restricted box with overflow*/
+  max-height: 90vh;
+  overflow: auto;
+  /*centering and resizing of content happens in the child for the sake of modularity*/
+}
