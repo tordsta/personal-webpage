@@ -3,17 +3,17 @@ const initialState = {
     {
       "name": "Home",
       "uri": "/",
-      "img": ""
+      "icon": "Home"
     },
     {
       "name": "About me",
       "uri": "/aboutme",
-      "img": ""
+      "icon": "CircleInformation"
     },
     {
       "name": "Hire me",
       "uri": "/hireme",
-      "img": ""
+      "icon": "Briefcase"
     }
   ]
 };

@@ -18,7 +18,7 @@ class HorizontalNavigation extends Component {
             <HorizontalNavigationButton link={routes} key={routes.uri} />
           ))}
         </div>
-        <div className={styles.spacer}></div>
+        <div className={styles.spacer} />
       </div>
     );
   }
