@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 
 // Import Style
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming';
 import styles from './App.css';
 import { BrowserView, MobileView } from 'react-device-detect';
+import theme from '../../components/DefaultTheme';
 
 // Import Components
 import VerticalNavigation from './components/VerticalNavigation/VerticalNavigation';
@@ -42,9 +46,12 @@ export class App extends Component {
     this.setState({isMounted: true}); // eslint-disable-line
   }
 
+  // TODO: make a mobile and a browser component, this is to messy
+
   render() {
     return (
       <div className={styles.app}>
+        <ThemeProvider theme={theme}>
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
 
         {/*Browser navigation and render*/}
@@ -70,6 +77,7 @@ export class App extends Component {
             {this.props.children}
           </MobileView>
         </div>
+        </ThemeProvider>
       </div>
     );
   }

@@ -3,11 +3,26 @@ import { Anchor } from 'grommet';
 import PropTypes from 'prop-types';
 
 // Import Style
-import styles from './VerticalNavigationButton.css';
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+
 
 function VerticalNavigationButton(props) {
   return (
-    <div className={styles.anchor}>
+    <div
+         css={ theme => ({
+           flexGrow: '1',
+           border: '1px solid gray',
+           fontFamily: theme.fontFamily.navigation,
+           fontSize: theme.fontSizes.big,
+           minHeight: theme.fontSizes.big,
+           /* This centers the anchor element in the middle of the div */
+           textAlign: 'center',
+           display: 'flex',
+           flexDirection: 'column',
+           justifyContent: 'center',
+         })}
+    >
       <Anchor href={props.link.uri}>
         {props.link.name}
       </Anchor>

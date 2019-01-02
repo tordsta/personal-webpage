@@ -1,18 +1,34 @@
 import React from 'react';
 
 // Import Style
-import styles from './WelcomeText.css';
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 
 function WelcomeText() {
   return (
-    <div className={styles.welcome}>
-      <h1 className={styles['welcome-header']}>
+    <div
+      css={ theme => ({
+        fontSize: theme.fontSizes.medium,
+        textAlign: 'center',
+        fontFamily: theme.fontFamily.standard,
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      })}
+    >
+      <h1
+        css={ theme => ({
+          fontFamily: theme.fontFamily.headline,
+        })}
+      >
         Welcome
       </h1>
       <br />
-      <p className={styles['welcome-text']}>
+      <br />
+      <p>
         My name is Tord Standnes and this my personal web page.<br />
-        For now the only use of this website is for me to play around with.<br />
+        For the time being, I only use this site to play around with.<br />
         Feel free to look around. <br />
         <br />
         This application is written with the MERN stack.
