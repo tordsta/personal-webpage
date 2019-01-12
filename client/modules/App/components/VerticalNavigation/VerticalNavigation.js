@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 // Import Style
 import styles from './VerticalNavigation.css';
-
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 
 // Import Component
 import VerticalNavigationButton from './VerticalNavigationButton/VerticalNavigationButton';
@@ -13,7 +14,18 @@ class VerticalNavigation extends Component {
 
   render() {
     return (
-      <div className={styles.verticalNavigation}>
+      <div css={ theme => ({
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: '20vw',
+        minWidth: '180px',
+        maxWidth: '300px',
+        height: '100vh',
+        minHeight: '200px',
+        backgroundColor: '#DADADA',
+      })}
+      >
         {this.props.routes.map( (routes) => (
           <VerticalNavigationButton link={routes} key={routes.uri} />
         ))}

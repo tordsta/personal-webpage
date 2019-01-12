@@ -16,6 +16,7 @@ function VerticalNavigationButton(props) {
            fontFamily: theme.fontFamily.navigation,
            fontSize: theme.fontSizes.big,
            minHeight: theme.fontSizes.big,
+           wordWrap: 'break-word', // word break should never happen, this is a backup
            /* This centers the anchor element in the middle of the div */
            textAlign: 'center',
            display: 'flex',
